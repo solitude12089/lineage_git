@@ -3,7 +3,17 @@
 @section('content')
 
 
+<style>
+     
+      @media screen and (max-width: 480px) {
+        .rwd_hide{
+            display: none !important;
+        }
+      
+      }
 
+
+</style>
 <section class="content-header">
     <h1>
       <small>扣薪入帳審核</small>
@@ -38,11 +48,11 @@
                             <thead>
                                 <tr>
                                     
-                                    <th>流水號</th>
+                                    <th  class="rwd_hide">流水號</th>
                                     <th>入帳單據</th>
                                     <th>入帳金額</th>
                                     <th>申請人</th>
-                                    <th>申請時間</th>
+                                    <th  class="rwd_hide">申請時間</th>
                                     <th>照片</th>
                                     <th></th>
                                     <th></th>
@@ -51,11 +61,11 @@
                             <tbody>
                                 @foreach($offsets as $key => $value)
                                 <tr>
-                                    <td>{{$value->id}}</td>
+                                    <td  class="rwd_hide">{{$value->id}}</td>
                                     <td><a href="{{url('treasure/info/'.$value->treasure_id)}}">{{$value->treasure_displayname}}</td>
                                     <td>{{$value->amount}}</td>
                                     <td>{{$value->user_id}}</td>
-                                    <td>{{$value->created_at}}</td>
+                                    <td  class="rwd_hide">{{$value->created_at}}</td>
                                     <td style="text-align:center;">
                                         <a  data-toggle="modal" data-target="#ajax-modal" href="{{url('offset/pic').'/'.$value->id}}"><i class="fa fa-eye"></i></a>
                                     </td>

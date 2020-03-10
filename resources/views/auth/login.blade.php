@@ -29,7 +29,9 @@
                                 @if($server!=null && $server == $customer['id'])
                                     <option value="{{$customer['id']}}" selected>{{$customer['username']}}</option>
                                 @else
+                                    @if($customer['status']!=0)
                                     <option value="{{$customer['id']}}">{{$customer['username']}}</option>
+                                    @endif
                                 @endif
                                 
                             @endforeach

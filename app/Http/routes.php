@@ -43,4 +43,14 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::controller('publicmoney', 'PublicmoneyController');
 	Route::controller('message', 'MessageController');
 	Route::controller('cross', 'CrossController');
+	Route::controller('deposit', 'DepositController');
+	 
 });
+
+Route::group(array('prefix' => 'api/v1' , 'middleware' => 'cors'), function () {
+	Route::controller('line', 'Api\v1\LineController');
+	
+});
+
+
+Route::controller('other', 'OtherController');

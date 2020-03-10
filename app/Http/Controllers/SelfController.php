@@ -17,8 +17,37 @@ class SelfController extends Controller
 
 	public function getTest()
 	{
-		$s = \App\models\Operation::where('id',1)->get();
-		dd($s);
+		  // $access_token = 'w46zv1AA5OInQkHfpdeEmsiFxZZoHB7Dnu4IzqdafvNlR8YkcAj5NEEpUEdCAhkOEnJMLa7TPpqAjlrj2FIK8wpAmTULdlx4j+6/6iFV2pGu7jptjml0dx+MLAUIAG0byKAXZCaXct58t2CLSSEb+wdB04t89/1O/w1cDnyilFU=';
+    //         $secret = '42b890d42af676ea08830dd8cb9660d3';
+
+    //         $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+    //         $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+    //         $msg='AAAABBB';
+    //         $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+    //         // $piccontent = new \LINE\LINEBot\MessageBuilder\ImageMessageBuilder('https://uhs.umich.edu/files/uhs/field/image/TEST.jpg', 'https://uhs.umich.edu/files/uhs/field/image/TEST.jpg');
+    //         // //$bot->pushMessage('C470c5b833685d6202256900acdf01998', $piccontent);
+    //         // $actions = array(
+    //         //   //一般訊息型 action
+    //         //   new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("按鈕1","文字1"),
+    //         //   //網址型 action
+    //         //   new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Google","http://www.google.com"),
+    //         //   //下列兩筆均為互動型action
+    //         //   new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("下一頁", "page=3"),
+    //         //   new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("上一頁", "page=1")
+    //         // );
+             
+    //         // $img_url = "https://cdn.pixabay.com/photo/2014/06/03/19/38/road-sign-361514_960_720.png";
+    //         // $button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("按鈕文字","說明", $img_url, $actions);
+    //         // $msg = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("這訊息要用手機的賴才看的到哦", $button);
+
+    //         // for ($x = 0; $x <= 10; $x++) {
+    //            $bot->pushMessage('Cdbc664f07f4c7e9b332647843617e761', $content);
+            // } 
+            
+
+          $linetools = new \App\Http\Controllers\Tools\DiscordTools;
+        $linetools->push('AA');
+
 	}
 
 
@@ -29,8 +58,9 @@ class SelfController extends Controller
     									->where('user_id',$user->email)
     									->orderBy('created_at','desc')
     									->get();
+        $user_list = \App\User::where('customer_id',Auth::user()->customer_id)->where('status',1)->get()->pluck('name','email')->toArray();
     	
-    	return view('self.index',['moneylogs'=>$moneylogs]);
+    	return view('self.index',['moneylogs'=>$moneylogs,'user_list'=>$user_list]);
     }
 
 
@@ -95,4 +125,5 @@ class SelfController extends Controller
 
  		return redirect('import/index');
  	}
+
 }

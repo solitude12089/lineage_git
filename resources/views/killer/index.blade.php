@@ -31,9 +31,7 @@
         <div class="col-md-12">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajax-modal" href="{{url('killer/add')}}">新增</button>
 
-            <label style="color:red">下次結算區間 : {{$start_day}} ~ {{$end_day}}</label>
-
-            <a href="https://docs.google.com/document/d/1YiLQMCMtqUoajk6CQeJG5QI8_qGDEm4Ac4LOBDtZ5Vw/edit" target="_blank" style="float: right;">說明文件</a>
+           
         </div>
        
     </div>

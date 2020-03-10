@@ -116,7 +116,7 @@ class OffsetController extends Controller
             //扣帳
             $moneylog = new \App\models\Moneylog;
             $moneylog->source_type = $date." 扣薪入帳";
-            $moneylog->source_id = 0;
+            $moneylog->source_id = $treasure->id;
             $moneylog->amount = -$offset->amount;
             $moneylog->user_id = $request_user->email;
             $moneylog->save();
@@ -128,32 +128,14 @@ class OffsetController extends Controller
                                     ->first();
             
           
-            // if($treasure->day >= '2018-06-18'){
-
-                // $avg = (int)($offset->amount/count($treasure->details));
-                // $treasure->really_price = $offset->amount;
-                // $treasure->status=2;
-                // $treasure->save();
-                // Log::info("Treasure_id : ".$treasure->id.' 扣薪入帳 '.$offset->amount.' by '.$user->name);
-            
-                // foreach ($treasure->details as $key => $value) {
-                //     $mlog = new \App\models\Moneylog;
-                //     $mlog ->source_type = 'treasure';
-                //     $mlog ->from_type = 1;
-                //     $mlog ->source_id = $treasure->id;
-                //     $mlog ->amount = $avg;
-                //     $mlog ->user_id = $value->user_id;
-                //     $mlog ->save();
-                // }
-            // }
-            // else{
-                $public_money =  (int)($offset->amount*0.1);
+          
+                $public_money =  (int)($offset->amount*$customer->treasure_public_scale/100);
                 //$public_money =  (int)($data['really_price']*0.2);
                 if($customer->keyin_bonus==1){
-                     $avg = (int)($offset->amount*0.9/(count($treasure->details)+1));
+                     $avg = (int)($offset->amount*((100-$customer->treasure_public_scale)/100)/(count($treasure->details)+1));
                 }
                 else{
-                     $avg = (int)($offset->amount*0.9/count($treasure->details));
+                     $avg = (int)($offset->amount*((100-$customer->treasure_public_scale)/100)/count($treasure->details));
                 }
                 //$avg = (int)($offset->amount*0.8/count($treasure->details));
 

@@ -20,6 +20,13 @@
     <div class="row">
         <div class="col-md-12">
             <a class="btn btn-primary" onclick="dopost()">新增出價</a>
+            @if($auction_detail!=null)
+                <form id="deleteform" style="display: -webkit-inline-box;" action="{{url('auction/delete-offer'.'/'.$auction->id)}}" method="post">
+                    <input class="btn btn-danger" onclick="dodelete()"  value="棄標(目前出價{{$auction_detail->price}})"/>
+                </form>
+                
+
+            @endif
         </div>
        
     </div>
@@ -158,6 +165,32 @@
 
 
     }
+
+    function dodelete(){
+        BootstrapDialog.show({
+            title:'棄標',
+            message: '是否棄標該商品???',
+            buttons: [
+                {
+                    label: '確定',
+                    cssClass: 'btn-success',
+                    action: function(dialogRef) {
+                            $('#deleteform').submit();
+                    }
+                    
+                },
+                {
+                    label: 'Close',
+                    action: function(dialogRef) {
+                        dialogRef.close();
+                    }
+                }
+
+
+            ]
+        });
+    }
+
 
    
    

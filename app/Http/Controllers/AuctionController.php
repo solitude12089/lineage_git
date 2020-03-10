@@ -51,12 +51,14 @@ class AuctionController extends Controller
          ->where('status','!=',2)
          ->get()
          ->pluck('name','email')->toArray();
-
+        $auction_detail = \App\models\Auction_detail::where('auction_id',$auction_id)
+                                                    ->where('user_id',$user->email)
+                                                    ->first();
       
 
         $unit = round($auction->min_price/100,0)<1?1:round($auction->min_price/100,0);
 
-    	return view('auction.info',['user'=>$user,'auction'=>$auction,'user_map'=>$user_map,'unit'=>$unit]);
+    	return view('auction.info',['user'=>$user,'auction'=>$auction,'user_map'=>$user_map,'unit'=>$unit,'auction_detail'=>$auction_detail]);
     }
     public function getInfohistory($auction_id)
     {
@@ -80,7 +82,7 @@ class AuctionController extends Controller
          ->get()
          ->pluck('name','email')->toArray();
 
-      
+        
 
 
 
@@ -163,28 +165,61 @@ class AuctionController extends Controller
 //             $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
 // //            $bot->pushMessage('C6b03d9f527e90b9977a92293aa0ec9ce', $content);
 // if($successful){
-            $customer = \App\models\customer::where('id',$user->customer_id)
-                                            ->first();
+           
 
-            $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
-            $secret = '47a50c9a7742bc5dacfcc5b166316e91';
-
-            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-            $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+          
             $msg=$user->name." 於拍賣場  成功競標了 商品 ".$auction->no." 
 寶物名稱：".$auction->name."
 截標時間".$auction->end_day." 23:59:59
 http://www.lineagebank.tw/auction/info/".$auction->id;
-            $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-            $bot->pushMessage($customer->line_id, $content);
+
+
+
+            $linetools = new \App\Http\Controllers\Tools\LineTools;
+            $linetools->push($msg);
 
 // }
             
-
+          
 
 
 
     	return back();
+    }
+
+     public function postDeleteOffer($auction_id){
+
+        $user=Auth::user();
+        if($user==null){
+            return "error";
+        }
+        $auction = \App\models\Auction::where('id',$auction_id)->first();
+        $auction_detail = \App\models\Auction_detail::where('auction_id',$auction_id)
+                                ->where('user_id',$user->email)
+                                ->first();
+        if($auction_detail==null){
+            return view('layouts.msg',['msg' => '棄標失敗,找不到該競標紀錄']);
+        }
+        else{
+            $auction_detail->delete();
+            // $customer = \App\models\customer::where('id',$user->customer_id)
+            //                                 ->first();
+            // $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
+            // $secret = '47a50c9a7742bc5dacfcc5b166316e91';
+
+            // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+            // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+            $msg=$user->name." 於拍賣場  棄標了 商品 ".$auction->no." 
+寶物名稱：".$auction->name;
+            // $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+            // $bot->pushMessage($customer->line_id, $content);
+
+            $linetools = new \App\Http\Controllers\Tools\LineTools;
+            $linetools->push($msg);
+
+            
+            return back();
+        }
     }
 
 
@@ -246,22 +281,24 @@ http://www.lineagebank.tw/auction/info/".$auction->id;
             // $access_token = 'w46zv1AA5OInQkHfpdeEmsiFxZZoHB7Dnu4IzqdafvNlR8YkcAj5NEEpUEdCAhkOEnJMLa7TPpqAjlrj2FIK8wpAmTULdlx4j+6/6iFV2pGu7jptjml0dx+MLAUIAG0byKAXZCaXct58t2CLSSEb+wdB04t89/1O/w1cDnyilFU=';
             // $secret = '42b890d42af676ea08830dd8cb9660d3';
 
-            $customer = \App\models\customer::where('id',$user->customer_id)
-                                        ->first();
+            // $customer = \App\models\customer::where('id',$user->customer_id)
+            //                             ->first();
 
-            $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
-            $secret = '47a50c9a7742bc5dacfcc5b166316e91';
+            // $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
+            // $secret = '47a50c9a7742bc5dacfcc5b166316e91';
 
-            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-            $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+            // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+            // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
             $msg=$user->name." 於拍賣場 建立了 新商品 ".$new_note->no." 
 寶物名稱：".$new_note->name."
 起標價格".$new_note->min_price."
 截標時間".$new_note->end_day." 23:59:59
 http://www.lineagebank.tw/auction/info/".$new_note->id;
-            $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-            $bot->pushMessage($customer->line_id, $content);
+            // $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+            // $bot->pushMessage($customer->line_id, $content);
 
+            $linetools = new \App\Http\Controllers\Tools\LineTools;
+            $linetools->push($msg);
 
       
 

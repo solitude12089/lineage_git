@@ -166,11 +166,11 @@
   		  </a>
       </li>
       @endif
-      <!-- <li>
+       <li>
         <a href="{{url('guild/index')}}">
         <i class="fa fa-cogs"></i> <span>公會成員設定</span>
         </a>
-      </li> -->
+      </li> 
         @if(strpos(Auth::user()->role_id, '4') !== false)
         <li>
           <a href="{{url('import/index')}}">
@@ -201,12 +201,13 @@
         <i class="fa fa-cogs"></i> <span>金庫總覽</span>
         </a>
       </li>
-
+<!--
       <li>
         <a href="{{url('salary/index')}}">
         <i class="fa fa-cogs"></i> <span>清算中心</span>
         </a>
       </li>
+-->
       @endif
 
 
@@ -237,14 +238,14 @@
       
         </a>
       </li>
-    -->
+    
       <li>
         <a href="{{url('rank/index')}}">
         <i class="fa fa-trophy"></i> <span>積分表</span>
         </a>
       </li>
    
-
+-->
       <li>
         <a href="{{url('report/index')}}">
         <i class="fa fa-bar-chart"></i> <span>聯盟收入</span>
@@ -260,11 +261,14 @@
         <i class="fa fa-gavel"></i> <span>出草申報</span>
         </a>
       </li>
+
+      <!--
       <li>
         <a href="{{url('question/index')}}">
         <i class="fa fa-question"></i> <span>問卷調查</span>
         </a>
       </li>
+    -->
       <li>
         <a href="{{url('auction/index')}}">
         <i class="fa fa-money"></i> <span>拍賣場</span>
@@ -275,6 +279,14 @@
         <i class="fa fa-id-card-o"></i> <span>個人銀行</span>
         </a>
       </li>
+
+      @if(strpos(Auth::user()->role_id, '6') !== false)
+      <li>
+        <a href="{{url('deposit/index')}}">
+        <i class="fa fa-money"></i> <span>儲值功能</span>
+        </a>
+      </li>
+      @endif
 
 
        

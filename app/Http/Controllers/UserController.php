@@ -78,8 +78,8 @@ class UserController extends Controller
 
         $c_user = new \App\User;
         $c_user->customer_id = $user->customer_id;
-        $c_user->name = $data['user'];
-        $c_user->email = $user->customer_id."_".$data['user'];
+        $c_user->name = trim($data['user']);
+        $c_user->email = $user->customer_id."_".trim($data['user']);
         $c_user->password = bcrypt('1234');
         $c_user->job = $data['job'];
         $c_user->guild = $data['guild'];
@@ -92,6 +92,10 @@ class UserController extends Controller
 
 
     public function getTest(){
+        $s = ' Apple';
+        dd(trim($s));
         return view('user.test');
     }
+    
+
 }

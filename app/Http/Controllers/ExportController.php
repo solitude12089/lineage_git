@@ -127,4 +127,47 @@ class ExportController extends Controller
         return back();
     }
 
+
+    public function postDotransfer(Request $request){
+        $user = Auth::user();
+        $data = $request->all();
+        $date = date('Ymd');
+
+        if(strlen($data['t_to_user'])<=0){
+            return "轉帳失敗,請輸入 轉帳入帳戶";
+        }
+       
+        $request_user = \App\User::where('customer_id',Auth::user()->customer_id)->with('moneylogs')->where('email',$user->email)->first();
+
+        if($data['t_amount']>$request_user->moneylogs->sum('amount')){
+            return "轉帳失敗,餘額不足";
+        }
+
+
+        $to_user = \App\User::where('customer_id',Auth::user()->customer_id)->where('email',$data['t_to_user'])->first();
+
+        $moneylog = new \App\models\Moneylog;
+        $moneylog->source_type = $date." 轉帳 to ".$to_user->name;
+        $moneylog->source_id = 0;
+        $moneylog->amount = -$data['t_amount'];
+        $moneylog->user_id = $request_user->email;
+        $moneylog->save();
+
+
+        $moneylogt = new \App\models\Moneylog;
+        $moneylogt->source_type = $date." 轉帳 from ".$request_user->name;
+        $moneylogt->source_id = 0;
+        $moneylogt->amount = $data['t_amount'];
+        $moneylogt->user_id = $to_user->email;
+        $moneylogt->save();
+
+
+
+        
+
+
+        return view('layouts.msg',['msg'=>'轉帳成功']);
+        
+    }
+
 }

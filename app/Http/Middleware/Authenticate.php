@@ -25,8 +25,17 @@ class Authenticate
             }
         }
         if(Auth::user()->status==9){
-            dd("此帳號已被停權,請洽管理員");
+            return response()->view('layouts.authfall');
         }
+        if(Auth::user()->customer==null){
+             return redirect()->guest('logout');
+        }
+
+        if(Auth::user()->customer->status==0){
+            return response()->view('layouts.msg',['msg'=>'該伺服器已停用,請洽管理員']);
+        }
+
+
         $path = $request->path();
         $log = new \App\models\Usetrackers;
         $log->path = $path;

@@ -19,7 +19,7 @@ class GuildController extends Controller
     {
 
         $user=Auth::user();
-        if($user->role_id!=4){
+        if (strpos($user->role_id, '4') === false) {
             return '無權限操作';
         }
         $user_list = \App\User::where('status',1)

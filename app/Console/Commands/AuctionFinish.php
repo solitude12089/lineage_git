@@ -86,18 +86,20 @@ class AuctionFinish extends Command
 						$customer = \App\models\customer::where('id',$user->customer_id)
 												->first();
 
-						$access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
-						$secret = '47a50c9a7742bc5dacfcc5b166316e91';
+						// $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
+						// $secret = '47a50c9a7742bc5dacfcc5b166316e91';
 
-						$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-						$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+						// $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+						// $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
 						$msg=$su_user->name." 於拍賣場  成功得標了 商品 ".$value->no." 
 			寶物名稱：".$value->name."
 			截標時間：".$value->end_day." 23:59:59
 			得標價格：".$value->now_price."
 			http://www.lineagebank.tw/auction/infohistory/".$value->id;
-						$content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-						$bot->pushMessage($customer->line_id, $content);
+						$linetools = new \App\Http\Controllers\Tools\LineTools;
+            			$linetools->push($msg);
+						// $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+						// $bot->pushMessage($customer->line_id, $content);
 					}
 				}
 			}

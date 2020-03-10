@@ -117,6 +117,9 @@ class ImportController extends Controller
  	
  	public function postDoimport(Request $request,$treasure_id){
  		$user = Auth::user();
+        if (strpos($user->role_id, '4') === false) {
+            return '無權限操作';
+        }
         $customer = $user->customer;
  		$data = $request->all();
  		$treasure = \App\models\Treasure::with('user')
@@ -148,12 +151,12 @@ class ImportController extends Controller
             // }
         // }
         // else{
-            $public_money =  (int)($data['really_price']*0.1);
+            $public_money =  (int)($data['really_price']*$customer->treasure_public_scale/100);
             if($customer->keyin_bonus==1){
-                 $avg = (int)($data['really_price']*0.9/(count($treasure->details)+1));
+                 $avg = (int)($data['really_price']*((100-$customer->treasure_public_scale)/100)/(count($treasure->details)+1));
             }
             else{
-                 $avg = (int)($data['really_price']*0.9/count($treasure->details));
+                 $avg = (int)($data['really_price']*((100-$customer->treasure_public_scale)/100)/count($treasure->details));
             }
            
 
@@ -205,8 +208,7 @@ class ImportController extends Controller
                                         ->first();
         $treasure->really_price = 0;
         $treasure->status = 1;
-        $mlog = \App\models\Moneylog::where('from_type',1)
-                                    ->where('source_id',$treasure->id)
+        $mlog = \App\models\Moneylog::where('source_id',$treasure->id)
                                     ->delete();
         $treasure->save();
         return redirect(url('/import/info/').'/'.$treasure_id);

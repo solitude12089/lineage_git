@@ -33,6 +33,7 @@
         margin: 0;
         padding: 0;
         width: 100px;
+        min-height: 600px;
     }
      
     .items li {
@@ -63,12 +64,29 @@
     .job4{
         background-color: lightblue;
     }
+    .job5{
+        color: #FFFFFF;
+        background-color: #008800;
+    }
+    .job6{
+        color: #FFFFFF;
+        background-color: #3A0088;
+    }
+    .job7{
+        color: #FFFFFF;
+        background-color: #A42D00;
+    }
+    .job8{
+        color: #FFFFFF;
+        background-color: #000000;
+    }
+   
 </style>
 
 
 <section class="content-header">
     <h1>
-      <small>公會成員設定</small>
+      <small>公會成員設定 - 拖曳ID來變更血盟,記得存檔</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="{{url('')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -90,6 +108,55 @@
     <div class="row">
         <div class="col-md-12">
             <div class="box">
+                <div class="box-header">
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job1" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">王族</div>
+                    </div>
+
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job2" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">騎士</div>
+                    </div>
+
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job3" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">妖精</div>
+                    </div>
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job4" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">法師</div>
+                    </div>
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job5" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">黑妖</div>
+                    </div>
+
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job6" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">槍手</div>
+                    </div>
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job7" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">龍鬥士</div>
+                    </div>
+
+                    <div style="display: -webkit-inline-box;">
+                        <div class="job8" style="width: 24px;height:24px;"></div>
+                        <div style="line-height: 24px;">黑暗騎士</div>
+                    </div>
+
+
+                   
+
+    
+                </div>
                 <div class="box-body">
                     <div id="timetable">
                         <button class="btn btn-success" style="float:right" onclick="dopost()">Save</button>

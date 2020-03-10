@@ -79,6 +79,11 @@
                             {{$moneylogs->sum('amount')}}
                             </div>
                             <button style="margin: 40px auto;float:right;" class="btn btn-group-justified btn-success" onclick="doexport()">領錢</button>
+
+
+                           
+                            <button style="margin: 10px auto;float:right;" class="btn btn-group-justified btn-danger" onclick="dotransfer()">轉帳</button>
+                          
                         </div>
                     </div>
                 </div>
@@ -86,6 +91,11 @@
 
                 <form id='addform' class="form-horizontal" action="{{url('export/doexport')}}" method="post">
                     <input id="amount" name="amount" style="display:none"/>
+                </form>
+
+                <form id='transferform' class="form-horizontal" action="{{url('export/dotransfer')}}" method="post">
+                    <input id="t_amount" name="t_amount" style="display:none"/>
+                    <input id="t_to_user" name="t_to_user" style="display:none"/>
                 </form>
 
           
@@ -120,9 +130,12 @@
 
 @endsection
 @section('script')
+
+<link rel="stylesheet" href="/dist/css/chosen.min.css">
+<script src="/dist/js/chosen.jquery.min.js"></script>
 <script>
 
-   
+    var user_list =  <?php echo json_encode($user_list); ?>;
     $('#table').DataTable(
     {
       "order": [[ 2, "desc" ]],
@@ -180,7 +193,94 @@
         });
    
     }
+  
 
+
+    function dotransfer(){
+        var dialog = new BootstrapDialog({
+            title:'轉帳',
+            message: '請輸入轉帳金額 <input type="number" class="form-control"> <br>請輸入轉帳人 <select  class="form-control chosen" name="_transer">@foreach($user_list as $uk => $u){<option value={{$uk}}>{{$u}}</option>}@endforeach</select>',
+            buttons: [
+                {
+                    label: '確定',
+                    cssClass: 'btn-success',
+                    action: function(dialogRef) {
+                        var money = dialogRef.getModalBody().find('input').val();
+                        var transer = dialogRef.getModalBody().find('select').val();
+                        if(money.length==0)
+                        {
+                            alert('請輸入轉帳金額!!!');
+                            dialogRef.close();
+                            return;
+                        }
+                        if(money<0)
+                        {
+                            alert('不可小於0!!!');
+                            dialogRef.close();
+                            return;
+                        }
+
+
+                        else
+                        {
+
+                            $(this).prop('disabled', true);
+                            $('#t_amount').val(money);
+                            $('#t_to_user').val(transer);
+                             doDouble();
+
+                        }
+
+                        
+                    }
+                    
+                },
+                {
+                    label: 'Close',
+                    action: function(dialogRef) {
+                        dialogRef.close();
+                    }
+                }
+
+
+            ],
+            onshown: function(dialogRef){
+                $('.chosen').chosen();
+            },
+        });
+
+        dialog.open();
+    }
+
+
+    function doDouble(){
+        var dialog = new BootstrapDialog({
+            title:'轉帳確認',
+            message: '您的金額即將轉出,請確認轉帳內容是否有誤<br><label style="font-size: 20px;color: red;">金額 :'+$('#t_amount').val() + '</label><br><label style="font-size: 20px;color: red;">轉帳至 :'+user_list[$('#t_to_user').val()] + '</label>',
+            buttons: [
+                {
+                    label: '確定',
+                    cssClass: 'btn-success',
+                    action: function(dialogRef) {
+                        $('#transferform').submit();
+                        dialogRef.close();
+                    }
+                    
+                },
+                {
+                    label: 'Close',
+                    action: function(dialogRef) {
+                        dialogRef.close();
+                    }
+                }
+
+
+            ],
+           
+        });
+
+        dialog.open();
+    }
 
    
 

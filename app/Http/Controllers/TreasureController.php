@@ -136,12 +136,23 @@ class TreasureController extends Controller
                                 ->first();
         $detail = \App\models\Treasure_detail::where('treasure_id',$treasure_id)
                                                 ->get();
+        $moneylog = \App\models\Moneylog::where('source_id',$treasure_id)
+                                                ->get();
+       
+        $offset = \App\models\Offset::where('treasure_id',$treasure_id)
+                                        ->first();
 
         if($treasure){
             $treasure->delete();
         }
         foreach ($detail as $key => $value) {
             $value->delete();
+        }
+        foreach ($moneylog as $key => $value) {
+            $value->delete();
+        }
+        if($offset){
+            $offset->delete();
         }
 
 
@@ -272,14 +283,14 @@ class TreasureController extends Controller
             // $access_token = 'w46zv1AA5OInQkHfpdeEmsiFxZZoHB7Dnu4IzqdafvNlR8YkcAj5NEEpUEdCAhkOEnJMLa7TPpqAjlrj2FIK8wpAmTULdlx4j+6/6iFV2pGu7jptjml0dx+MLAUIAG0byKAXZCaXct58t2CLSSEb+wdB04t89/1O/w1cDnyilFU=';
             // $secret = '42b890d42af676ea08830dd8cb9660d3';
 
-            $customer = \App\models\customer::where('id',$user->customer_id)
-                                        ->first();
+            // $customer = \App\models\customer::where('id',$user->customer_id)
+            //                             ->first();
 
-            $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
-            $secret = '47a50c9a7742bc5dacfcc5b166316e91';
+            // $access_token = '8L7+iU4Wj9pn+0/+Qii7IoMNT7JhHK450WGwnBSNyc+0ndKH3++M9kkqHUtiqQQra8/OTguNeI2o+C8bJ7/lY+0H+pUHp1LFl6mLUVREFvmahvFdi0k5CIN12mZVkDXOxuIBF1whwoamYmg+ILOe/wdB04t89/1O/w1cDnyilFU=';
+            // $secret = '47a50c9a7742bc5dacfcc5b166316e91';
 
-            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-            $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
+            // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+            // $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $secret]);
             $msg=$user->name." 建立了寶物申報單 ".$new_note->no." 
 日期：".$new_note->day." 
 Boss：".$boss_list[$new_note->boss_id]." 
@@ -287,8 +298,11 @@ Boss：".$boss_list[$new_note->boss_id]."
 持有人：".$user_map[$new_note->owner]." 
 參與人：".$msg_members." 
 http://www.lineagebank.tw/treasure/info/".$new_note->id;
-            $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-            $bot->pushMessage($customer->line_id, $content);
+            // $content = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+            // $bot->pushMessage($customer->line_id, $content);
+
+            $linetools = new \App\Http\Controllers\Tools\LineTools;
+            $linetools->push($msg);
 
 
         }
