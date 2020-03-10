@@ -1,0 +1,619 @@
+.ad-image {
+    z-index: 0!important
+}
+#qpkg{
+    margin-bottom:50px;
+}
+@media(min-width: 1600px) {
+    #toright {
+        display: none
+    }
+    #right_bar {
+        margin-left: 40px
+    }
+}
+@media(min-width: 1300px) {
+    .addthis_sharing_toolbox {
+        clear: none!important;
+        margin-top: 33px;
+        margin-right: 50px;
+        float: right;
+    }
+    #sub{
+        padding-left: 260px;
+    }    
+    #qpkg_img{
+        height: 180px;
+        width: 180px;
+    }
+    #qpkg_name{
+        font-size: 30px;
+        color: #5c5c5c;
+        margin-bottom: 12px;
+    }
+    #qpkg_rating{
+        font-size: 12px;
+        color: gray;
+        height: 60px;
+    }
+    #leavecom_lightbox{
+        display: none;
+    }
+}
+
+@media(max-width: 1300px) {
+    .addthis_sharing_toolbox {
+        margin-left: 40px;
+    }
+    #qpkg_img {
+        height: 125px;
+        width: 125px
+    }
+    #qpkg_rating {
+        font-size: 12px;
+        color: gray;
+        height: 35px
+    }
+
+    #qpkg_name {
+        font-size: 30px;
+        color: #5c5c5c;
+    }
+    .widgetWrap {
+        z-index: 2
+    }
+
+    .bottom_icon {
+        color: #fff;
+        font-size: 40px!important;
+        padding-top: 5px;
+        cursor: pointer
+    }
+
+    #icon_table tbody tr td {
+        text-align: center
+    }
+    #install_info{
+        margin-bottom: 40px;
+    }
+    #com_lightbox a {
+        color: #fff;
+        text-decoration: none
+    }
+
+    .leave_com {
+        display: none
+    }
+
+    #leavecom_lightbox {
+        height: 60px;
+        width: 60px;
+        background-color: #edbc27;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 20px;
+        position: fixed;
+        right: 106px;
+        bottom: 20px
+    }
+
+    #leavecom_lightbox i {
+        color: #fff
+    }
+
+    #qpkg {
+        margin: auto
+    }
+}
+@media(max-width: 700px){
+    .com_post_time{
+        display: block;
+        margin-top: 10px;
+    }
+}
+@media (min-width: 600px) {
+    #sub{
+        padding-left: 205px;
+    }
+    #qpkg_icon {
+        margin-left: 50px;
+        margin-right: 40px;
+        float: left
+    }
+    #qpkg_comnum {
+        float: left;
+        margin-left: 9px;
+        font-size: 18px
+    }
+
+    .plus_star {
+        color: rgba(0,0,0,0.64);
+        float: left;
+        margin-right: 15px;
+        width: 12px;
+        height: 12px
+    }
+
+    .com_plus_star {
+        color: rgba(0,0,0,0.64);
+        margin-right: 3px;
+        width: 10px;
+        height: 10px;
+        font-size: 12px!important
+    }
+
+    .half_star {
+        color: rgba(0,0,0,0.64);
+        float: left;
+        margin-right: 15px;
+        width: 12px;
+        height: 12px
+    }
+
+    .com_half_star {
+        color: rgba(0,0,0,0.64);
+        font-size: 12px!important;
+        margin-right: 3px;
+        width: 10px;
+        height: 10px
+    }
+
+    .no_star {
+        color: rgba(0,0,0,0.1);
+        float: left;
+        margin-right: 15px;
+        width: 12px;
+        height: 12px
+    }
+
+    .com_no_star {
+        color: rgba(0,0,0,0.1);
+        font-size: 12px!important;
+        margin-right: 3px;
+        width: 10px;
+        height: 10px
+    }
+
+    #main {
+        padding-top: 40px;
+        min-height: 260px;
+        padding-bottom: 40px;
+    }
+
+    #install_info {
+        color: gray;
+        font-size: 15px;
+        float: left
+    }
+    .sub_comment {
+        margin-left: 81px;
+        font-size: 12px;
+        color: gray;
+        clear: both;
+        margin-bottom: 50px
+    }
+
+    #neworhelp {
+        box-shadow: 0 1px 5px hsl(0,0%,85%);
+        width: 103px;
+        height: 76px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 10px;
+        position: absolute
+    }
+
+    .user_info .com_name {
+        font-size: 15px;
+        width: 240px;
+        float: left;
+        height: 15px;
+        color: #5c5c5c
+    }
+
+    .user_info .com_post_time {
+        color: #a2a2a2
+    }
+
+    .com_like i {
+        font-size: 12px
+    }
+
+    .sub_com {
+        clear: both
+    }
+
+    .sub_com a {
+        color: gray
+    }
+
+    .tab_bot {
+        background-color: #fff;
+        margin-bottom: 2px;
+        clear: both
+    }
+
+    .tab_bot>ul {
+        overflow: hidden;
+        margin-bottom: 0;
+        box-shadow: 0 1px 2px #d9d9d9;
+        width: 100%
+    }
+
+    .tab_bot>ul>li {
+        list-style-type: none
+    }
+
+    .tab_bot>ul>li>a {
+        text-decoration: none;
+        font-size: 24px;
+        color: #5c5c5c;
+        float: left;
+        width: 50%;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #tab {
+        min-height: 500px
+    }
+
+    #tab>div {
+        clear: both;
+    }
+
+    .r {
+        float: left;
+        border: none;
+        height: 30px
+    }
+
+    .r > input {
+        display: none
+    }
+
+    .r > label:before {
+        margin-right: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005"
+    }
+
+    .r > label {
+        color: #e6e6e6;
+        float: right;
+        height: 10px
+    }
+
+    .r > input:checked ~ label,/* show gold star when clicked */
+    .r:not(:checked) > label:hover,/* hover current star */
+    .r:not(:checked) > label:hover ~ label {
+        color: #595959
+    }
+
+    .r > input:checked + label:hover,/* hover current star when changing rating */
+    .r > input:checked ~ label:hover,.r > label:hover ~ input:checked ~ label,/* lighten current selection */
+    .r > input:checked ~ label:hover ~ label {
+        color: #595959
+    }
+
+    .r_dia {
+        float: left;
+        border: none;
+        height: 30px
+    }
+
+    .r_dia > input {
+        display: none
+    }
+
+    .r_dia > label:before {
+        margin-right: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005"
+    }
+
+    .r_dia > label {
+        color: #e6e6e6;
+        float: right;
+        height: 10px
+    }
+
+    .r_dia > input:checked ~ label,/* show gold star when clicked */
+    .r_dia:not(:checked) > label:hover,/* hover current star */
+    .r_dia:not(:checked) > label:hover ~ label {
+        color: #595959
+    }
+
+    .r_dia > input:checked + label:hover,/* hover current star when changing rating */
+    .r_dia > input:checked ~ label:hover,.r_dia > label:hover ~ input:checked ~ label,/* lighten current selection */
+    .r_dia > input:checked ~ label:hover ~ label {
+        color: #595959
+    }
+}
+
+@media (max-width: 600px) {
+    #sub{
+        padding-left: 140px;
+    } 
+    .edit_com_up{
+        margin-bottom: 0px;
+    }
+    .sub_com{
+        clear: both;
+    } 
+    .user_info .com_name{
+        margin-bottom: 10px;
+    } 
+    .addthis_sharing_toolbox {
+        margin-top:16px!important;
+        margin-left: 30px;
+    }
+    #qpkg_icon {
+        margin-left: 20px;
+        margin-right: 20px;
+        float: left
+    }
+
+    #qpkg_img {
+        width: 100px;
+        height: 100px
+    }
+
+    #qpkg_name {
+        font-size: 23px;
+        color: #5c5c5c;
+    }
+
+    #qpkg_rating {
+        font-size: 15px;
+        color: gray;
+    }
+
+    .plus_star {
+        color: rgba(0,0,0,0.64);
+        float: left;
+        margin-right: 7px;
+        width: 15px;
+        height: 15px
+    }
+
+    .com_plus_star {
+        color: rgba(0,0,0,0.64);
+        margin-right: 7px;
+        width: 10px;
+        height: 10px;
+        font-size: 12px!important
+    }
+
+    .half_star {
+        color: rgba(0,0,0,0.64);
+        float: left;
+        margin-right: 7px;
+        width: 15px;
+        height: 15px
+    }
+
+    .com_half_star {
+        color: rgba(0,0,0,0.64);
+        font-size: 12px!important;
+        margin-right: 7px;
+        width: 10px;
+        height: 10px
+    }
+
+    .no_star {
+        color: rgba(0,0,0,0.1);
+        float: left;
+        margin-right: 7px;
+        width: 15px;
+        height: 15px
+    }
+
+    .com_no_star {
+        color: rgba(0,0,0,0.1);
+        font-size: 12px!important;
+        margin-right: 7px;
+        width: 10px;
+        height: 10px
+    }
+
+    #star_num i {
+        font-size: 19px
+    }
+
+    #main {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-right: 20px;
+    }
+
+    #install_info {
+        margin-bottom: 25px;
+        font-size: 15px;
+    }
+
+    #tab {
+        width: 100%
+    }
+
+    .tab_bot {
+        background-color: #fff;
+        margin-bottom: 2px;
+        clear: both;
+        height: 50px
+    }
+
+    .tab_bot>ul {
+        margin-bottom: 0;
+        box-shadow: 0 1px 2px #d9d9d9;
+        width: 100%
+    }
+
+    .tab_bot>ul>li {
+        list-style-type: none
+    }
+
+    .tab_bot>ul>li>a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #5c5c5c;
+        float: left;
+        width: 50%;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+    }
+
+    #tab>div {
+        clear: both;
+    }
+
+    #neworhelp {
+        box-shadow: 0 1px 5px hsl(0,0%,85%);
+        width: 103px;
+        height: 76px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 10px;
+        position: absolute
+    }
+    #com_category {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #5c5c5c
+    }
+    .sub_comment {
+        margin-left: 81px;
+        font-size: 12px;
+        color: gray;
+        clear: both;
+        margin-bottom: 50px
+    }
+
+    .leave_com {
+        display: none;
+        width: 26%;
+        float: right;
+        font-size: 20px;
+        color: #575757
+    }
+
+    .edit_com_up {
+        float: none!important;
+        width: 100%!important
+    }
+
+    .edit_com_down {
+        float: none!important;
+        width: 100%!important
+    }
+
+    .talk_back_com {
+        width: 100%;
+        height: 37px;
+        margin-bottom: 9px;
+        margin-top: 9px
+    }
+
+    .user_info .com_name {
+        font-size: 15px;
+        color: #5c5c5c
+    }
+
+    .user_info .com_post_time {
+        color: #a2a2a2
+    }
+
+    .com_like i {
+        font-size: 12px
+    }
+
+    .sub_com a {
+        color: gray
+    }
+
+    .r {
+        float: left;
+        border: none;
+        height: 30px
+    }
+
+    .r > input {
+        display: none
+    }
+
+    .r > label:before {
+        margin-right: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005"
+    }
+
+    .r > label {
+        color: #e6e6e6;
+        float: right;
+        height: 10px
+    }
+
+    .r > input:checked ~ label,/* show gold star when clicked */
+    .r:not(:checked) > label:hover,/* hover current star */
+    .r:not(:checked) > label:hover ~ label {
+        color: #595959
+    }
+
+    .r > input:checked + label:hover,/* hover current star when changing rating */
+    .r > input:checked ~ label:hover,.r > label:hover ~ input:checked ~ label,/* lighten current selection */
+    .r > input:checked ~ label:hover ~ label {
+        color: #595959
+    }
+
+    .r_dia {
+        float: left;
+        border: none;
+        height: 30px
+    }
+
+    .r_dia > input {
+        display: none
+    }
+
+    .r_dia > label:before {
+        margin-right: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005"
+    }
+
+    .r_dia > label {
+        color: #e6e6e6;
+        float: right;
+        height: 10px
+    }
+
+    .r_dia > input:checked ~ label,/* show gold star when clicked */
+    .r_dia:not(:checked) > label:hover,/* hover current star */
+    .r_dia:not(:checked) > label:hover ~ label {
+        color: #595959
+    }
+
+    .r_dia > input:checked + label:hover,/* hover current star when changing rating */
+    .r_dia > input:checked ~ label:hover,.r_dia > label:hover ~ input:checked ~ label,/* lighten current selection */
+    .r_dia > input:checked ~ label:hover ~ label {
+        color: #595959
+    }
+}
+
+@media (max-width: 320px) {
+    #qpkg {
+        width:320px
+    }
+}

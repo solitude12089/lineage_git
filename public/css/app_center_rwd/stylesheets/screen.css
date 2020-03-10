@@ -1,0 +1,658 @@
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    font-style: normal;
+    font-weight: 900;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline
+}
+
+html {
+    line-height: 1;
+    background-color: #F2F2F2!important;
+    font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    letter-spacing: 0px
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption,
+th,
+td {
+    text-align: left;
+    font-weight: 400;
+    vertical-align: middle
+}
+
+q,
+blockquote {
+    quotes: none
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+    content: "";
+    content: none
+}
+
+a img {
+    border: none
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+.widget_chat {
+    bottom: 70px!important
+}
+
+#qnap_logo {
+    width: 140px;
+    height: 100%;
+}
+
+.carousel {
+    margin-bottom: 45px;
+}
+
+.show_title {
+    display: inline-flex;
+    flex-direction: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.show_block_title {
+    font-size: 24px;
+}
+
+.show_block_more {
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 15px;
+    background-color: #0DB1F0;
+}
+
+.basic-btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.show_block_more a,
+.show_block_more a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+    #for_login {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 70px;
+        max-width: 470px;
+        height: 500px;
+        margin: auto;
+        text-align: center
+    }
+    #talking {
+        font-size: 18px;
+        clear: both;
+        display: block;
+        margin-bottom: 30px;
+        margin-top: 25px;
+    }
+    #for_login .oauth {
+        margin-left: 5px;
+        float: left
+    }
+    .third_img{
+        width: 57px;
+        height: 57px;
+    }
+    #login_img{
+        width: 104px;
+        height: 104px;
+        margin-bottom: 25px;
+    }
+    .modal-backdrop{
+        opacity: .9 !important;
+        background-color:rgb(8,18,30); 
+    }
+    .modal-dialog{
+        top:18%;
+    }
+    #for_login>span{
+        font-size: 24px;
+    }
+    .head_bar {
+        background-color: #182536;
+        width: 100%;
+        height: 55px;
+        z-index: 4;
+        position: fixed;
+        top: 0;
+        display: flex;
+    }
+    .top_menu {
+        position: fixed;
+        right: 0;
+        width: 100%;
+        left: 238px;
+        top: 55px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 16px;
+        color: #5c5c5c;
+        background-color: #fff;
+        padding-left: 40px
+    }
+    .top_menu ul li a{
+        color: #5c5c5c;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .top_menu ul li {
+        float: left;
+        margin-left: 20px;
+    }
+    .left_menu {
+        position: fixed;
+        top: 0;
+        width: 238px;
+        font-size: 15px;
+        padding-top: 55px;
+        float: left;
+        height: 100%;
+        overflow: hidden
+    }
+    .left_menu_info {
+        width: 254px;
+        overflow-x: hidden;
+        height: 100%
+    }
+    .left_menu ul {
+        margin-bottom: 0;
+        list-style-type: none;
+        width: 238px
+    }
+    .left_menu ul #pad_left_login {
+        background-color: #E1E1E1;
+        font-size: 15px;
+        height: 45px;
+        line-height: 45px;
+        width: 238px
+    }
+    .left_menu ul #pad_left_login a:hover {
+        background-color: #E1E1E1
+    }
+    .mobile_all {
+        display: block;
+        font-size: 17px;
+        line-height: 45px;
+        padding-left: 36px;
+        height: 45px;
+        width: 238px;
+        color: #fff;
+        cursor: default;
+        background-color: #00c3e8;
+        box-shadow: 0 1px 5px #bfbfbf;
+    }
+    .mobile_all2 {
+        display: block;
+        font-size: 17px;
+        line-height: 45px;
+        padding-left: 36px;
+        height: 45px;
+        width: 238px;
+        color: #ffffff;
+        cursor: default;
+        background-color: #25cd94;
+        box-shadow: 0 1px 5px #bfbfbf;
+    }
+    .category {
+        display: block;
+        background-color: #fff;
+        width: 238px;
+        box-shadow: 0 1px 5px #bfbfbf
+    }
+    .type {
+        background-color: #fff;
+        box-shadow: 0 1px 5px #bfbfbf;
+        width: 238px
+    }
+    .left_menu ul li a {
+        display: block;
+        color: #5c5c5c;
+        text-decoration: none;
+        height: 45px;
+       
+        cursor: pointer;
+        font-size: 15px;
+        padding-left: 36px
+    }
+    .left_menu ul li a:hover {
+        background-color: #EDEDED
+    }
+    .pad_login_info {
+        background-color: #FFF;
+        display: none;
+        width: 238px
+    }
+    .left_menu ul .pad_login_info a:hover {
+        background-color: #EDEDED
+    }
+
+    body{
+        color:#5c5c5c !important;
+        font-family: "Open Sans", Helvetica, Verdana, Tahoma, "PingFang TC", "Lantinghei TC", "微軟正黑體", "Microsoft JhengHei", sans-serif !important;
+    }
+@media (min-width: 1920px) {
+
+}
+@media (min-width: 1000px) {
+    .top_menu{
+        top:55px !important;
+    }
+    .language_icon {
+        font-size: 30px
+    }
+    #picklanguage {
+        margin-right: 43px
+    }
+    #show_left_side {
+        display: none
+    }
+    #show_search {
+        display: none
+    }
+    .search_pad {
+        display: none!important
+    }
+    #qnap_logo {
+        margin-left: 40px;
+        width: 145px;
+        margin-right: 16px;
+        height: 100%;
+    }
+    #logo_title {
+        display: block!important
+    }
+    .left_menu {
+        display: block!important;
+    }
+    .login_user_info {
+        display: none;
+        background-color: #fff;
+        height: 100px;
+        border: solid;
+        border-color: gray;
+        border-width: 1px;
+        border-radius: 10%;
+        min-width: 90px;
+        font-size: 15px
+    }
+    .login_user_info ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0
+    }
+    .login_user_info ul li {
+        margin-bottom: 10px
+    }
+    .login_user_info ul li a {
+        display: block;
+        color: #5c5c5c;
+        text-decoration: none;
+        word-wrap: break-word
+    }
+    .login_user_info ul li a:hover {
+        background-color: #EDEDED
+    }
+    
+    .qpkg_info {
+        margin-left: 300px;
+        margin-top: 125px;
+        margin-right: 24px
+    }
+    .qpkg_info_all {
+        margin-left: 300px;
+        margin-top: 145px;
+        margin-right: 24px
+    }
+    .show_block {
+        width: 100%;
+        margin-bottom: 33px
+    }
+    .show_title {
+        width: 100%;
+    }
+}
+@media (max-width: 1000px) {
+    .list-icon{
+        color: white;
+        cursor: pointer;
+        font-size: 33px !important;
+        line-height: 55px !important;
+        margin-right: 5px;
+        margin-left: 15px;
+    }
+    .search-icon {
+        color: white;
+        cursor: pointer;
+        font-size: 26px !important;
+        line-height: 55px !important;
+        margin-right: 5px;
+    }
+    .language_icon {
+        font-size: 24px
+    }
+    #language_select {
+        display: none
+    }
+    #show_left_side {
+        display: block
+    }
+    #show_search {
+        display: block
+    }
+    #search_block {
+        display: none
+    }
+    .search_pad {
+        position: fixed;
+        top: 55px;
+        background-color: #F4F4F4;
+        z-index: 4
+    }
+    #search_form {
+        background-color: #F4F4F4;
+        outline: none;
+        border-style: none
+    }
+    #search_form:focus {
+        background-color: #F4F4F4;
+        outline: none
+    }
+    #login_block {
+        display: none
+    }
+    .input-group {
+        display: none!important
+    }
+    .head_bar { 
+        text-align: center;
+    }
+    .head_bar a.qnap_logo {
+        width: 90%;
+    }
+    .left_menu {
+        display: none;
+        z-index: 3;
+    }
+    .top_menu {
+        left: 0px;
+        padding-left: 0px;
+    }
+    .banner {
+        width: 100%
+    }
+    .qpkg_info {
+        margin-left: 24px;
+        margin-top: 125px;
+        margin-right: 24px
+    }
+    .qpkg_info_all {
+        margin-left: 24px;
+        margin-top: 145px;
+        margin-right: 24px
+    }
+    .overlay {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow-x: hidden
+    }
+    .show_block {
+        width: 100%;
+    }
+    .show_block_title {
+        clear: both;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-bottom: 6px
+    }
+}
+@media (max-width: 600px) {
+    .list-icon{
+        color: white;
+        cursor: pointer;
+        font-size: 33px !important;
+        line-height: 55px !important;
+        margin-right: 5px;
+        margin-left: 15px;
+    }
+    #show_left_side {
+        display: block
+    }
+    #search_block {
+        display: none
+    }
+    #show_search {
+        display: block
+    }
+    #let_show {
+        height: 60px
+    }
+    #search_form {
+        background-color: #F4F4F4;
+        outline: none;
+        border-style: none
+    }
+    #search_form:focus {
+        background-color: #F4F4F4;
+        outline: none
+    }
+    #login_block {
+        display: none
+    }
+    .input-group {
+        display: none!important
+    }
+    .search_pad {
+        position: fixed;
+        top: 55px;
+        background-color: #F4F4F4;
+        z-index: 4
+    }
+    .top_menu {
+        display: none
+    }
+    .banner {
+        width: 100%
+    }
+    .qpkg_info,
+    .qpkg_info_all {
+        margin-top: 80px;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 10px;
+    }
+    .overlay {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow-x: hidden
+    }
+    .show_block_title {
+        font-size: 24px;
+        clear: both;
+        font-weight: lighter;
+        margin-bottom: 6px
+    }
+    .show_block {
+        width: 100%;
+    }
+}
+@media (max-width: 320px) {
+    html{
+        width: 320px !important;
+    }
+}
